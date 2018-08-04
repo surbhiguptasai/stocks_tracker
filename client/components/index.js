@@ -7,3 +7,4 @@
 export {default as StockApp} from './stockapp'
 export {default as AddStock} from './addStock'
 export {default as Chart} from './chart'
+export {default as Footer} from './footer'

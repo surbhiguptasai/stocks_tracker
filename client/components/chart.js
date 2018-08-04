@@ -36,7 +36,7 @@ class Chart extends Component {
         let out = this.getData(chart1.chart)
         return {
           data: out,
-          name: chart1.symbol
+          name: chart1.quote.symbol
         }
       })
       const config = configureHighcharts(series)
@@ -46,7 +46,11 @@ class Chart extends Component {
         return <div />
       }
     } else {
-      return <div>Loading</div>
+      return (
+        <div>
+          <h1 className="w3-center">Please add stock symbol e.g. AAPL</h1>
+        </div>
+      )
     }
   }
 }

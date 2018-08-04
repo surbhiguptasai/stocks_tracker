@@ -8,7 +8,7 @@ class StockApp extends Component {
   constructor() {
     super()
     this.state = {
-      stockSymbols: ['AAPL', 'MSFT']
+      stockSymbols: ['AAPL', 'MSFT', 'AMZN', 'TSLA', 'TWTR', 'NFLX', 'VZ']
     }
     this.handleRemoveClick = this.handleRemoveClick.bind(this)
   }
@@ -25,7 +25,6 @@ class StockApp extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Stocks Tracker</h1>
         {this.props.stocks.map(stock => (
           <div key={stock.quote.symbol}>
             <StockInfo

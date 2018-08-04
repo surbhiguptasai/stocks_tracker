@@ -20,6 +20,7 @@ const stockSymbols = (state = {}, action) => {
       }
     case REMOVE_SYMBOL:
       let updatedStocks = state
+      console.log('updated stocks', JSON.stringify(updatedStocks))
       if (updatedStocks.length == 1) {
         updatedStocks = []
         return updatedStocks
@@ -28,7 +29,7 @@ const stockSymbols = (state = {}, action) => {
           return item.search(action.code) == -1
         })
       }
-      return [updatedStocks]
+      return updatedStocks
 
     default:
       return state

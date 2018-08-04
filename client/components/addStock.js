@@ -32,7 +32,7 @@ class AddStock extends Component {
       <div className="add-stock-container">
         <div className="input-group">
           <input
-            className="form-control"
+            className="form-control inputBorder"
             placeholder="Stock symbol e.g. AAPL"
             value={this.state.code}
             onChange={this.handleCodeChange}
@@ -66,8 +66,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     addStock: symbol => dispatch(addStock(symbol)),
-    batchStocksLoader: symbols => dispatch(batchStocksLoader(symbols)),
-    chartLoader: symbols => dispatch(chartLoader(symbols))
+    batchStocksLoader: symbols => dispatch(batchStocksLoader(symbols))
   }
 }
 
