@@ -16,12 +16,16 @@ export function loadStockSymbols() {
   })
 }
 export function loadBatchStocks(stockSymbols) {
-  return api
-    .get(
-      `/stock/market/batch?symbols=${stockSymbols}&types=quote&range=1m&last=5`
-    )
-    .then(res => {
-      return res.data
-    })
+  console.log('Stock Symbols is ' + stockSymbols[0].length)
+  if (stockSymbols !== null && stockSymbols[0].length !== 0) {
+    return api
+      .get(
+        `/stock/market/batch?symbols=${stockSymbols}&types=quote,chart&range=2y&last=5`
+      )
+      .then(res => {
+        return res.data
+      })
+  }
 }
+
 //stock/market/batch?symbols=aapl,fb,tsla&types=quote,news,chart&range=1m&last=5

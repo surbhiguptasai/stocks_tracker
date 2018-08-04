@@ -1,0 +1,15 @@
+.add-stock-container {
+  margin-top: 10px;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.form-control, .btn {
+  font-family: Oswald;
+}
+
+.alert {
+  margin-top: 5px;
+}
