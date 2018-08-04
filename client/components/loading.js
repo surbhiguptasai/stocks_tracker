@@ -19,13 +19,6 @@ class Loading extends Component {
   }
 }
 
-Loading.propTypes = {
-  isFetching: PropTypes.bool,
-  message: PropTypes.string
-}
-
 const mapStateToProps = state => ({notification: state.notification})
 
-Loading = connect(mapStateToProps)(Loading)
-
-export default Loading
+export default connect(mapStateToProps)(Loading)

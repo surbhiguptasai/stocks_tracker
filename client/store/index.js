@@ -5,7 +5,6 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import notification from './notifications'
 import stockSymbols from './stockSymbols'
 import stocks from './stocks'
-// import chartdata from './charts'
 
 const reducer = combineReducers({notification, stocks, stockSymbols})
 const middleware = composeWithDevTools(
@@ -14,4 +13,3 @@ const middleware = composeWithDevTools(
 const store = createStore(reducer, middleware)
 
 export default store
-export * from './user'

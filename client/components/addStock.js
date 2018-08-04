@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {addStock} from '../actions/stock'
 import {batchStocksLoader} from '../store/stocks'
-import {chartLoader} from '../store/charts'
 import {connect} from 'react-redux'
 
 class AddStock extends Component {
@@ -24,7 +23,6 @@ class AddStock extends Component {
       this.setState({code: ''})
       await this.props.addStock(this.state.code)
       this.props.batchStocksLoader(this.props.stockSymbols)
-      //this.props.chartLoader(this.state.code)
     }
   }
 
@@ -40,7 +38,11 @@ class AddStock extends Component {
             onChange={this.handleCodeChange}
           />
           <span className="input-group-btn">
-            <button className="btn btn-primary" onClick={this.submitStockCode}>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={this.submitStockCode}
+            >
               Add
             </button>
           </span>

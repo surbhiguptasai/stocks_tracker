@@ -15,9 +15,9 @@ export function loadStockSymbols() {
     return res.data
   })
 }
+
 export function loadBatchStocks(stockSymbols) {
-  console.log('Stock Symbols is ' + stockSymbols[0].length)
-  if (stockSymbols !== null && stockSymbols[0].length !== 0) {
+  if (stockSymbols !== null && stockSymbols.length !== 0) {
     return api
       .get(
         `/stock/market/batch?symbols=${stockSymbols}&types=quote,chart&range=2y&last=5`
@@ -27,5 +27,3 @@ export function loadBatchStocks(stockSymbols) {
       })
   }
 }
-
-//stock/market/batch?symbols=aapl,fb,tsla&types=quote,news,chart&range=1m&last=5
