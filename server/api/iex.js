@@ -20,7 +20,7 @@ export function loadBatchStocks(stockSymbols) {
   if (stockSymbols !== null && stockSymbols.length !== 0) {
     return api
       .get(
-        `/stock/market/batch?symbols=${stockSymbols}&types=quote,chart&range=2y&last=5`
+        `/stock/market/batch?symbols=${stockSymbols}&types=quote,chart&range=2y&last=4`
       )
       .then(res => {
         return res.data

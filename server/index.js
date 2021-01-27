@@ -7,9 +7,13 @@ const passport = require('passport')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 // const db = require('./db')
 //const sessionStore = new SequelizeStore({db})
-const PORT = process.env.PORT || 8080
+const port = process.env.PORT || 4001;
+
 const app = express()
-const socketio = require('socket.io')
+const http = require("http");
+const server = http.createServer(app);
+const socketIo = require("socket.io");
+
 module.exports = app
 
 // This is a global Mocha hook, used for resource cleanup.
@@ -96,13 +100,23 @@ const createApp = () => {
 
 const startListening = () => {
   // start listening (and create a 'server' object representing our server)
-  const server = app.listen(PORT, () =>
-    console.log(`Mixing it up on port ${PORT}`)
-  )
+  const io = socketIo(server);
+io.on("connection", socket => {
+    console.log("New client connected");
 
-  // set up our socket control center
-  const io = socketio(server)
-  require('./socket')(io)
+    //Here we listen on a new namespace called "incoming data"
+    socket.on("incoming data", (data)=>{
+        //Here we broadcast it out to all other sockets EXCLUDING the socket which sent us the data
+       socket.broadcast.emit("outgoing data", {num: data});
+    });
+
+    //A special namespace "disconnect" for when a client disconnects
+    socket.on("disconnect", () => console.log("Client disconnected"));
+});
+
+server.listen(port, () => console.log(`Listening ***** on port ${port}`));
+//  const io = socketio.listen(server,{ serveClient: false })
+//  require('./socket')(io)
 }
 
 //const syncDb = () => db.sync()
