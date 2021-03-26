@@ -20,7 +20,7 @@ export function loadBatchStocks(stockSymbols) {
   if (stockSymbols !== null && stockSymbols.length !== 0) {
     return api
       .get(
-        `/stock/market/batch?token=pk_949cbfb4b4ac4abb82181f7ac5a93080&symbols=${stockSymbols}&types=quote,chart&range=2y&last=5`
+        `/stock/market/batch?token=pk_949cbfb4b4ac4abb82181f7ac5a93080&symbols=${stockSymbols}&types=quote,chart&range=2y&last=100`
       )
       .then(res => {
         return res.data
