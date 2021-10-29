@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Stocks tracker application!!!",
   "engines": {
-    "node": ">= 7.0.0"
+    "node": "16.x",
+    "npm": "8.x"
   },
   "main": "index.js",
   "scripts": {
